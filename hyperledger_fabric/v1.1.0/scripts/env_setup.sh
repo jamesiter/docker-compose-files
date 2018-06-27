@@ -4,8 +4,16 @@
 
 install_docker() {
 	echo "Install Docker..."
-	cat docker.sh | sh
-	sudo service docker stop
+	cat scripts/docker.sh | sh
+        cat > /etc/docker/daemon.json << EOF
+{
+    "insecure-registries":["hub.ez-iso.com:80"],
+    "registry-mirrors": ["http://hub.ez-iso.com:80", "https://pee6w651.mirror.aliyuncs.com"]
+}
+EOF
+        
+        systemctl restart docker
+        systemctl enable docker
 	#nohup sudo docker daemon --api-cors-header="*" -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock&
 	echo "Docker Installation Done"
 }
