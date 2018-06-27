@@ -4,7 +4,7 @@
 
 install_docker() {
 	echo "Install Docker..."
-	wget -qO- https://get.docker.com/ | sh
+	cat docker.sh | sh
 	sudo service docker stop
 	#nohup sudo docker daemon --api-cors-header="*" -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock&
 	echo "Docker Installation Done"
@@ -13,8 +13,7 @@ install_docker() {
 install_docker_compose() {
 	echo "Install Docker-Compose..."
 	command -v "curl" >/dev/null 2>&1 || sudo apt-get update && apt-get install curl -y
-	curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-	sudo chmod +x /usr/local/bin/docker-compose
+        yum install docker-compose -y
 	docker-compose --version
 	echo "Docker-Compose Installation Done"
 }

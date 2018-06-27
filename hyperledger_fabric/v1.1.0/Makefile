@@ -1,7 +1,7 @@
 # Makefile to bootup the network, and do operations (channel, chaincode)
 
 # mode of the network: solo, kafka, couchdb, event, dev
-HLF_MODE ?= solo
+HLF_MODE ?= kafka
 HLF_VERSION ?= 1.1.0
 
 CODE_BUILD_WAIT=40 # time to wait to build peer/orderer from local code
