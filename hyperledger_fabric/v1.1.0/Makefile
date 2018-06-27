@@ -177,10 +177,10 @@ cli: # enter the cli container
 	docker exec -it fabric-cli bash
 
 orderer: # enter the orderer container
-	docker exec -it orderer.example.com bash
+	docker exec -it orderer.1chemic.com bash
 
 peer: # enter the peer container
-	docker exec -it peer0.org1.example.com bash
+	docker exec -it peer0.org1.1chemic.com bash
 
 ps: # show existing docker images
 	docker ps -a
@@ -192,8 +192,8 @@ logs_check: logs_save logs_view
 
 logs_save: # save logs
 	[ -d $(LOG_PATH) ] || mkdir -p $(LOG_PATH)
-	docker logs peer0.org1.example.com >& $(LOG_PATH)/dev_peer0.log
-	docker logs orderer.example.com >& $(LOG_PATH)/dev_orderer.log
+	docker logs peer0.org1.1chemic.com >& $(LOG_PATH)/dev_peer0.log
+	docker logs orderer.1chemic.com >& $(LOG_PATH)/dev_orderer.log
 	docker-compose -f ${COMPOSE_FILE} logs >& $(LOG_PATH)/dev_all.log
 
 logs_view: # view logs

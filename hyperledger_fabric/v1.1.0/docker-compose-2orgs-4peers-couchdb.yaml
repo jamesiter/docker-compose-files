@@ -1,11 +1,11 @@
 # github.com/yeasy/docker-compose-files
 # fabric network with couchdb as the peer state db.
 # including:
-# orderer.example.com: orderer node
-# peer0.org1.example.com: peer0 node
-# peer1.org1.example.com: peer1 node
-# peer0.org2.example.com: peer2 node
-# peer1.org2.example.com: peer3 node
+# orderer.1chemic.com: orderer node
+# peer0.org1.1chemic.com: peer0 node
+# peer1.org1.1chemic.com: peer1 node
+# peer0.org2.1chemic.com: peer2 node
+# peer1.org2.1chemic.com: peer3 node
 # couchdb0: couchdb node
 # couchdb1: couchdb node
 # couchdb2: couchdb node
@@ -15,45 +15,45 @@
 version: '2'
 
 services:
-  orderer.example.com:
+  orderer.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: orderer.example.com
+      service: orderer.1chemic.com
 
-  peer0.org1.example.com:
+  peer0.org1.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer0.org1.example.com
+      service: peer0.org1.1chemic.com
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
     depends_on:
       - couchdb0
 
-  peer1.org1.example.com:
+  peer1.org1.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer1.org1.example.com
+      service: peer1.org1.1chemic.com
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
     depends_on:
       - couchdb1
 
-  peer0.org2.example.com:
+  peer0.org2.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer0.org2.example.com
+      service: peer0.org2.1chemic.com
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
     depends_on:
       - couchdb2
 
-  peer1.org2.example.com:
+  peer1.org2.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer1.org2.example.com
+      service: peer1.org2.1chemic.com
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984

@@ -8,52 +8,52 @@
 version: '2.0'
 
 services:
-# ca.org1.example.com:
+# ca.org1.1chemic.com:
 #   extends:
 #     file: base-kafka.yaml
-#     service: ca.org1.example.com
+#     service: ca.org1.1chemic.com
 
-# ca.org2.example.com:
+# ca.org2.1chemic.com:
 #   extends:
 #     file: base-kafka.yaml
-#     service: ca.org2.example.com
+#     service: ca.org2.1chemic.com
 
   cli:
     extends:
       file: base-kafka.yaml
       service: cli
 
-  orderer.example.com:  # There  can be multiple orderers
+  orderer.1chemic.com:  # There  can be multiple orderers
     extends:
       file: base-kafka.yaml
-      service: orderer.example.com
+      service: orderer.1chemic.com
     depends_on:
       - kafka0
       - kafka1
       - kafka2
       - kafka3
 
-  peer0.org1.example.com:
+  peer0.org1.1chemic.com:
     extends:
       file: base-kafka.yaml
-      service: peer0.org1.example.com
+      service: peer0.org1.1chemic.com
     depends_on:
-      - orderer.example.com
+      - orderer.1chemic.com
 
-  peer1.org1.example.com:
+  peer1.org1.1chemic.com:
     extends:
       file: base-kafka.yaml
-      service: peer1.org1.example.com
+      service: peer1.org1.1chemic.com
 
-  peer0.org2.example.com:
+  peer0.org2.1chemic.com:
     extends:
       file: base-kafka.yaml
-      service: peer0.org2.example.com
+      service: peer0.org2.1chemic.com
 
-  peer1.org2.example.com:
+  peer1.org2.1chemic.com:
     extends:
       file: base-kafka.yaml
-      service: peer1.org2.example.com
+      service: peer1.org2.1chemic.com
 
 # ZooKeeper services, at least 3 nodes
   zookeeper0:

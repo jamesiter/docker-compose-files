@@ -1,36 +1,36 @@
 # All elements in this file should depend on the base-solo.yaml
 # Provided solo-base fabric network with:
 
-# ca.org1.example.com
-# ca.org2.example.com
-# orderer.example.com
-# peer0.org1.example.com
-# peer1.org1.example.com
-# peer0.org2.example.com
-# peer1.org2.example.com
+# ca.org1.1chemic.com
+# ca.org2.1chemic.com
+# orderer.1chemic.com
+# peer0.org1.1chemic.com
+# peer1.org1.1chemic.com
+# peer0.org2.1chemic.com
+# peer1.org2.1chemic.com
 # cli
 
 version: '2'  # v3 does not support 'extends' yet
 
 services:
-  ca.org1.example.com: # ca node for org1
+  ca.org1.1chemic.com: # ca node for org1
     extends:
       file: base-solo.yaml
-      service: ca.org1.example.com
+      service: ca.org1.1chemic.com
     environment:
       - FABRIC_CA_SERVER_TLS_ENABLED=false
 
-  ca.org2.example.com: # ca node for org1
+  ca.org2.1chemic.com: # ca node for org1
     extends:
       file: base-solo.yaml
-      service: ca.org2.example.com
+      service: ca.org2.1chemic.com
     environment:
       - FABRIC_CA_SERVER_TLS_ENABLED=false
 
-  orderer.example.com:  # orderer node for example org
+  orderer.1chemic.com:  # orderer node for example org
     extends:
       file: base-solo.yaml
-      service: orderer.example.com
+      service: orderer.1chemic.com
     environment:
       - ORDERER_GENERAL_TLS_ENABLED=false
 
@@ -44,31 +44,31 @@ services:
 
 ## following are peer nodes ##
 
-  peer0.org1.example.com:
+  peer0.org1.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer0.org1.example.com
+      service: peer0.org1.1chemic.com
     environment:
       - CORE_PEER_TLS_ENABLED=false
 
-  peer1.org1.example.com:
+  peer1.org1.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer1.org1.example.com
+      service: peer1.org1.1chemic.com
     environment:
       - CORE_PEER_TLS_ENABLED=false
 
-  peer0.org2.example.com:
+  peer0.org2.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer0.org2.example.com
+      service: peer0.org2.1chemic.com
     environment:
       - CORE_PEER_TLS_ENABLED=false
 
-  peer1.org2.example.com:
+  peer1.org2.1chemic.com:
     extends:
       file: base-solo.yaml
-      service: peer1.org2.example.com
+      service: peer1.org2.1chemic.com
     environment:
       - CORE_PEER_TLS_ENABLED=false
 

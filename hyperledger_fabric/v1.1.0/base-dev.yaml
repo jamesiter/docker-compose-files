@@ -7,13 +7,13 @@
 version: '2'
 
 services:
-  orderer.example.com:  # There can be multiple orderers
+  orderer.1chemic.com:  # There can be multiple orderers
     extends:
       file: base.yaml
       service: orderer-base
     image: yeasy/hyperledger-fabric:1.1.0
-    container_name: orderer.example.com
-    hostname: orderer.example.com
+    container_name: orderer.1chemic.com
+    hostname: orderer.1chemic.com
     ports:
       - "7050:7050"
     environment:
@@ -25,36 +25,36 @@ services:
       - $GOPATH/src/github.com/hyperledger/fabric:/go/src/github.com/hyperledger/fabric
       # for solo case
       #- ./solo/channel-artifacts/orderer.genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      #- ./solo/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/var/hyperledger/orderer/msp
-      #- ./solo/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/:/var/hyperledger/orderer/tls
+      #- ./solo/crypto-config/ordererOrganizations/1chemic.com/orderers/orderer.1chemic.com/msp:/var/hyperledger/orderer/msp
+      #- ./solo/crypto-config/ordererOrganizations/1chemic.com/orderers/orderer.1chemic.com/tls/:/var/hyperledger/orderer/tls
       # for kafka case
       - ./kafka/channel-artifacts/orderer.genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./kafka/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/var/hyperledger/orderer/msp
-      - ./kafka/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/:/var/hyperledger/orderer/tls
+      - ./kafka/crypto-config/ordererOrganizations/1chemic.com/orderers/orderer.1chemic.com/msp:/var/hyperledger/orderer/msp
+      - ./kafka/crypto-config/ordererOrganizations/1chemic.com/orderers/orderer.1chemic.com/tls/:/var/hyperledger/orderer/tls
     command: bash -c 'bash /tmp/orderer_build.sh; orderer start' # use this if to debug orderer
     #command: bash -c 'orderer start'
 
-  peer0.org1.example.com:
+  peer0.org1.1chemic.com:
     extends:
       file: base.yaml
       service: peer-base
     image: yeasy/hyperledger-fabric:1.1.0
-    container_name: peer0.org1.example.com
-    hostname: peer0.org1.example.com
+    container_name: peer0.org1.1chemic.com
+    hostname: peer0.org1.1chemic.com
     environment:
-      - CORE_PEER_ID=peer0.org1.example.com
-      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.org1.example.com:7052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.example.com:7051
+      - CORE_PEER_ID=peer0.org1.1chemic.com
+      - CORE_PEER_ADDRESS=peer0.org1.1chemic.com:7051
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.org1.1chemic.com:7052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.1chemic.com:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
       - $GOPATH/src/github.com/hyperledger/fabric:/go/src/github.com/hyperledger/fabric
       # solo mode configuration
-      #- ./solo/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp
-      #- ./solo/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls
+      #- ./solo/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/msp:/etc/hyperledger/fabric/msp
+      #- ./solo/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/tls:/etc/hyperledger/fabric/tls
       # kafka mode configuration
-      - ./kafka/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp
-      - ./kafka/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls
+      - ./kafka/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/msp:/etc/hyperledger/fabric/msp
+      - ./kafka/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/tls:/etc/hyperledger/fabric/tls
     ports:
       - 7051:7051
       - 7052:7052
@@ -73,12 +73,12 @@ services:
     tty: true
     environment:
       - CORE_PEER_ID=fabric-cli
-      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051 # default to operate on peer0.org1
+      - CORE_PEER_ADDRESS=peer0.org1.1chemic.com:7051 # default to operate on peer0.org1
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.1chemic.com/peers/peer0.org1.1chemic.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.1chemic.com/users/Admin@org1.1chemic.com/msp
     volumes:
       - $GOPATH/src/github.com/hyperledger/fabric:/opt/gopath/src/github.com/hyperledger/fabric
       #- /tmp/:/tmp/

@@ -9,38 +9,38 @@ version: '2.0'
 
 services:
 
-  orderer.example.com:  # There  can be multiple orderers
+  orderer.1chemic.com:  # There  can be multiple orderers
     extends:
       file: base-event.yaml
-      service: orderer.example.com
+      service: orderer.1chemic.com
 
-  peer0.org1.example.com:
+  peer0.org1.1chemic.com:
     extends:
       file: base-event.yaml
-      service: peer0.org1.example.com
+      service: peer0.org1.1chemic.com
     depends_on:
-      - orderer.example.com
+      - orderer.1chemic.com
 
-  peer1.org1.example.com:
+  peer1.org1.1chemic.com:
     extends:
       file: base-event.yaml
-      service: peer1.org1.example.com
+      service: peer1.org1.1chemic.com
     depends_on:
-      - orderer.example.com
+      - orderer.1chemic.com
 
-  peer0.org2.example.com:
+  peer0.org2.1chemic.com:
     extends:
       file: base-event.yaml
-      service: peer0.org2.example.com
+      service: peer0.org2.1chemic.com
     depends_on:
-      - orderer.example.com
+      - orderer.1chemic.com
 
-  peer1.org2.example.com:
+  peer1.org2.1chemic.com:
     extends:
       file: base-event.yaml
-      service: peer1.org2.example.com
+      service: peer1.org2.1chemic.com
     depends_on:
-      - orderer.example.com
+      - orderer.1chemic.com
 
   cli:
     extends:
@@ -52,8 +52,8 @@ services:
       file: base-event.yaml
       service: event-listener
     depends_on:
-      - orderer.example.com
-      - peer0.org1.example.com
-      - peer1.org1.example.com
-      - peer0.org2.example.com
-      - peer1.org2.example.com
+      - orderer.1chemic.com
+      - peer0.org1.1chemic.com
+      - peer1.org1.1chemic.com
+      - peer0.org2.1chemic.com
+      - peer1.org2.1chemic.com

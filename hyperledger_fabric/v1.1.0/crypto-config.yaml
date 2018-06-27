@@ -11,16 +11,16 @@ OrdererOrgs:
   # Orderer
   # ---------------------------------------------------------------------------
   - Name: Orderer
-    Domain: example.com
+    Domain: 1chemic.com
     CA:
-        Country: US
-        Province: California
-        Locality: San Francisco
+        Country: CN
+        Province: Shanghai
+        Locality: Shanghai
     # ---------------------------------------------------------------------------
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
     Specs:
-      - Hostname: orderer
+      - Hostname: orderer.1chemic.com
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------
@@ -29,11 +29,11 @@ PeerOrgs:
   # Org1
   # ---------------------------------------------------------------------------
   - Name: Org1
-    Domain: org1.example.com
+    Domain: org1.1chemic.com
     CA:
-        Country: US
-        Province: California
-        Locality: San Francisco
+        Country: CN
+        Province: Shanghai
+        Locality: Shanghai
     # ---------------------------------------------------------------------------
     # "Specs"
     # ---------------------------------------------------------------------------
@@ -51,8 +51,8 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.org1.example.com"
-    #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
+    #   - Hostname: foo # implicitly "foo.org1.1chemic.com"
+    #     CommonName: foo27.org5.1chemic.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
     # ---------------------------------------------------------------------------
@@ -82,11 +82,11 @@ PeerOrgs:
   # Org2: See "Org1" for full specification
   # ---------------------------------------------------------------------------
   - Name: Org2
-    Domain: org2.example.com
+    Domain: org2.1chemic.com
     CA:
-        Country: US
-        Province: California
-        Locality: San Francisco
+        Country: CN
+        Province: Shanghai
+        Locality: Shanghai
     Template:
       Count: 2
     Users:
