@@ -5,6 +5,7 @@
 install_docker() {
 	echo "Install Docker..."
 	cat scripts/docker.sh | sh
+        mkdir -p /etc/docker
 cat > /etc/docker/daemon.json << EOF
 {
     "insecure-registries":["hub.ez-iso.com:80"],
