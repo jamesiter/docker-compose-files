@@ -21,7 +21,6 @@ EOF
 
 install_docker_compose() {
 	echo "Install Docker-Compose..."
-	command -v "curl" >/dev/null 2>&1 || sudo apt-get update && apt-get install curl -y
         yum install docker-compose -y
 	docker-compose --version
 	echo "Docker-Compose Installation Done"
